@@ -40,7 +40,7 @@ export const initialState = {
         price: 300,
         img: 'mikrofon5.jpg',
         type: 'stage',
-      }
+      },
     ],
     loading: {
       active: false,
