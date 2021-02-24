@@ -2,11 +2,24 @@
 
 .root {
   color: $pink;
-  a {
-    text-decoration: none;
+  text-decoration: none;
+  p {
     font-family: $logo-font;
     color: white;
     font-size: 40px;
-    line-height: 25px;
+    line-height: 32px;
+    transition: all 1s;
+
+    &:hover {
+      color: $pink;
+    }
+  }
+}
+
+@media screen and (max-width: 450px) {
+  .root {
+    p {
+      font-size: 30px;
+    }
   }
 }

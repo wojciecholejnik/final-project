@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 // import PropTypes from 'prop-types';
 
 import clsx from 'clsx';
@@ -9,9 +10,9 @@ import clsx from 'clsx';
 import styles from './Logo.module.scss';
 
 const Component = () => (
-  <div className={clsx(styles.root)}>
-    <a href='/'>BuBa <br/>Bakery</a>
-  </div>
+  <Link to='/' className={clsx(styles.root)}>
+    <p href='/'>BuBa <br/>Bakery</p>
+  </Link >
 );
 
 // Component.propTypes = {

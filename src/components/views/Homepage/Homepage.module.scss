@@ -1,4 +1,80 @@
 @import '../../../styles/settings.scss';
 
-// .root {
-// }
+.root {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+
+  .logoCake {
+    height: 40vh;
+    padding: 20px;
+    margin-top: 20px;
+    border-radius: 50%;
+    background-color: $pistachio;
+    animation: moveDown 1s ease-in-out;
+  }
+
+  .text {
+    margin-top: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: $pistachio;
+    width: 80%;
+    border-radius: 8px;
+    animation: moveRight 1s ease-in-out;
+  }
+
+  .title {
+    color: white;
+    font-family: $menu-font;
+    font-size: 40px;
+    text-shadow: 2px 2px $pink;
+    margin: 5px;
+    text-align: center;
+  }
+
+  .subtitle {
+    color: white;
+    font-family: $menu-font;
+    font-size: 30px;
+    text-shadow: 2px 2px $pink;
+    margin-top: 0;
+    text-align: center;
+  }
+}
+
+@keyframes moveDown {
+  1% {
+    transform: translateY(-500px);
+  }
+  25% {
+    transform: translateY(40px);
+  }
+  50% {
+    transform: translateY(-25px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+@keyframes moveRight {
+  1% {
+    transform: translateX(-1000px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .root {
+    .subtitle {
+      display: none;
+    }
+  }
+}

@@ -1,5 +1,5 @@
 import React from 'react';
-// import PropTypes from 'prop-types';
+import PropTypes from 'prop-types';
 import { MenuButton } from '../../common/MenuButton/MenuButton';
 
 import clsx from 'clsx';
@@ -9,18 +9,37 @@ import clsx from 'clsx';
 
 import styles from './MenuNav.module.scss';
 
-const Component = () => (
-  <div className={clsx(styles.root)}>
-    <MenuButton name={'order'}/>
-    <MenuButton name={'about'}/>
-    <MenuButton name={'contact'}/>
-  </div>
-);
+class Component extends React.Component {
 
-// Component.propTypes = {
-//   children: PropTypes.node,
-//   className: PropTypes.string,
-// };
+  static propTypes = {
+    match: PropTypes.node,
+  }
+
+  state = {
+    activePage: '',
+  }
+
+  componentDidMount(){
+    this.setState({activePage: '/'});
+  }
+
+  setActiveMenuButton = (name) => {
+    this.setState({activePage: '/'+name});
+    console.log(name);
+  };
+
+  render(){
+
+    return (
+      <div className={clsx(styles.root)}>
+        <MenuButton name={'order'} />
+        <MenuButton name={'about'} />
+        <MenuButton name={'contact'} />
+      </div>
+    );
+  }
+}
+
 
 // const mapStateToProps = state => ({
 //   someProp: reduxSelector(state),

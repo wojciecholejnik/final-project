@@ -12,7 +12,7 @@ const Component = () => (
   <div className={clsx(styles.root)}>
     <a href='http://www.facebook.com'><i className="fab fa-facebook-square"></i></a>
     <a href='http://www.instagram.com'><i className="fab fa-instagram"></i></a>
-    <a href='htttp://www.twitter.com'><i className="fab fa-twitter"></i></a>
+    <a href='http://www.twitter.com'><i className="fab fa-twitter"></i></a>
   </div>
 );
 
