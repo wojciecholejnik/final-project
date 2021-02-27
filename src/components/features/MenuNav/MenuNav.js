@@ -1,6 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { NavLink } from 'react-router-dom';
 import { MenuButton } from '../../common/MenuButton/MenuButton';
+
+import Badge from '@material-ui/core/Badge';
+import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
 
 import clsx from 'clsx';
 
@@ -12,7 +16,7 @@ import styles from './MenuNav.module.scss';
 class Component extends React.Component {
 
   static propTypes = {
-    match: PropTypes.node,
+    cart: PropTypes.array,
   }
 
   state = {
@@ -29,12 +33,17 @@ class Component extends React.Component {
   };
 
   render(){
-
+    const { cart } = this.props;
     return (
       <div className={clsx(styles.root)}>
         <MenuButton name={'order'} />
         <MenuButton name={'about'} />
         <MenuButton name={'contact'} />
+        <div className={styles.cart}>
+          <Badge component={NavLink} to={'/cart'} badgeContent={null || cart.length} color='primary'>
+            <ShoppingCartIcon className={styles.cartIcon} fontSize='large'/>
+          </Badge>
+        </div>
       </div>
     );
   }

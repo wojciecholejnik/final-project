@@ -1,9 +1,8 @@
 /* selectors */
-export const getCakes = ({products}) => products.cakes;
-export const getCupcakes = ({products}) => products.cupcakes;
+export const getCart = ({cart}) => cart;
 
 /* action name creator */
-const reducerName = 'posts';
+const reducerName = 'cart';
 const createActionName = name => `app/${reducerName}/${name}`;
 
 /* action types */
