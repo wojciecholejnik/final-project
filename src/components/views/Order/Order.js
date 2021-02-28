@@ -36,7 +36,7 @@ class Component extends React.Component {
           <h2 className={styles.title}>These are our cakes: </h2>
           <GridList spacing={15} className={styles.gridList} cols={this.state.width > 600 ? 2.2 : 1.15} cellHeight={230}>
             {cakes.map((tile) => (
-              <GridListTile component={NavLink} to={'/product/cake' + tile._id} key={tile._id}>
+              <GridListTile component={NavLink} to={'/product/cake-' + tile._id} key={tile._id}>
                 <img className={styles.image} src={require('../../../images/products/cakes/' + tile.img)} alt={tile.title} />
                 <GridListTileBar
                   title={tile.title}
@@ -51,7 +51,7 @@ class Component extends React.Component {
           <h2 className={styles.title}>... and cupcakes: </h2>
           <GridList spacing={15} className={styles.gridList} cols={this.state.width > 600 ? 2.2 : 1.15} cellHeight={230}>
             {cupcakes.map((tile) => (
-              <GridListTile component={NavLink} to={'/product/cupcake' + tile._id } key={tile._id}>
+              <GridListTile component={NavLink} to={'/product/cupcake-' + tile._id } key={tile._id}>
                 <img className={styles.image} src={require('../../../images/products/cupcakes/' + tile.img)} alt={tile.title} />
                 <GridListTileBar
                   className={styles.signature}

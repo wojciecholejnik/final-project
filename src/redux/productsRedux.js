@@ -1,6 +1,13 @@
 /* selectors */
 export const getCakes = ({products}) => products.cakes;
 export const getCupcakes = ({products}) => products.cupcakes;
+export const getOne = ({products, id, type}) => {
+  if(type === 'cake'){
+    return products.cakes.find(product => product._id === id);
+  } else {
+    return products.cupcakes.find(product => product._id === id);
+  }
+};
 
 /* action name creator */
 const reducerName = 'posts';
