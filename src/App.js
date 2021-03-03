@@ -13,7 +13,7 @@ import { Order } from './components/views/Order/Order';
 import { About } from './components/views/About/About';
 import { Contact } from './components/views/Contact/Contact';
 import { Product } from './components/views/Product/Product';
-import { Cart } from './components/features/Cart/Cart';
+import { Cart } from './components/views/Cart/Cart';
 import { NotFound } from './components/views/NotFound/NotFound';
 
 const theme = createMuiTheme({

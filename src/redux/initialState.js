@@ -87,10 +87,6 @@ export const initialState = {
       error: false,
     },
   },
-  cart: [
-    {
-      name: 'example name',
-      price: 999,
-    },
-  ],
+  cart: [],
+  orders: [],
 };

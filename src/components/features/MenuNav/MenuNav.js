@@ -19,10 +19,6 @@ class Component extends React.Component {
     cart: PropTypes.array,
   }
 
-  state = {
-    activePage: '',
-  }
-
   componentDidMount(){
     this.setState({activePage: '/'});
   }

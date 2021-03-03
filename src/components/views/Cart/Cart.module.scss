@@ -1,0 +1,59 @@
+@import '../../../styles/settings.scss';
+
+.root {
+  display: flex;
+  flex-direction: column;
+}
+
+h2 {
+  color: white;
+  font-family: $menu-font;
+  font-size: 40px;
+  text-shadow: 2px 2px $pink;
+  margin: 5px;
+  text-align: center;
+}
+
+.container {
+  width: 80%;
+  max-width: 500px;
+  margin: 20px auto 0 auto;
+  background-color: $pistachio;
+  border-radius: 8px;
+}
+
+.avatar {
+  width: 140px;
+  height: 140px;
+  margin-right: 10px;
+}
+
+.formContainer {
+  width: 80%;
+  margin: 10px auto;
+}
+
+
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+button {
+  width: 100px;
+  margin-top: 15px;
+  background-color: $pink;
+  border-radius: 8px;
+  font-size: 22px;
+  padding: 5px;
+  color: white;
+  font-family: $menu-font;
+  text-shadow: 2px 2px $pink;
+  border: none;
+  outline: none;
+
+  &:hover {
+    cursor: pointer;
+  }
+}
