@@ -43,17 +43,27 @@ class Cart extends React.Component {
     return cost;
   }
 
-  submitForm(){
-    if(this.state.products.length > 0 && this.state.name && this.state.email && this.state.phone){
-      const order = this.state;
-      this.props.addOrder(order);
-    }
+  submitForm = (e) => {
+    e.preventDefault();
+    const order = this.state;
+    this.props.addOrder(order);
+    this.props.removeCart();
+    localStorage.setItem('cart', JSON.stringify([]));
+    window.alert('Your order has been placed for processing');
   }
 
   componentDidMount(){
     //set today date to state
     const today = new Date();
     this.setState({date: today.getDate() + '.' + (1 + today.getMonth()) + '.' + today.getFullYear()});
+  }
+
+  removeFromLocal = (id) => {
+    const local = JSON.parse(localStorage.getItem('cart'));
+    const product = local.find(product => product.id === id);
+    const index = local.indexOf(product);
+    local.splice(index, 1);
+    localStorage.setItem('cart', JSON.stringify(local));
   }
 
   render(){
@@ -106,7 +116,10 @@ class Cart extends React.Component {
                       </React.Fragment>
                     }
                   />
-                  <ListItemSecondaryAction onClick={() => this.props.removeOneFromCart(product.id)}>
+                  <ListItemSecondaryAction onClick={() => {
+                    this.props.removeOneFromCart(product.id);
+                    this.removeFromLocal(product.id);
+                  }}>
                     <IconButton edge="end" aria-label="delete" >
                       <DeleteIcon />
                     </IconButton>
@@ -118,7 +131,7 @@ class Cart extends React.Component {
               <h2>Total cost: ${this.state.totalPrice}</h2>
             </div>
             <div className={styles.formContainer}>
-              <form className={styles.form}>
+              <form className={styles.form} onSubmit={this.submitForm}>
                 <TextField
                   onChange={(event) => {
                     this.setState({name: event.target.value});
@@ -154,12 +167,7 @@ class Cart extends React.Component {
                 ></TextField>
 
                 <button
-                  // type='submit'
-                  onClick={(event) => {
-                    event.preventDefault();
-                    this.submitForm();
-                    this.props.removeCart();
-                  }}
+                  type='submit'
                 >Submit</button>
               </form>
             </div>
@@ -175,6 +183,7 @@ Cart.propTypes = {
   removeOneFromCart: PropTypes.func,
   removeCart: PropTypes.func,
   addOrder: PropTypes.func,
+  loadCartRequest: PropTypes.func,
 };
 
 const mapStateToProps = state => ({

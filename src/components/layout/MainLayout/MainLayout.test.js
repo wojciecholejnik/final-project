@@ -4,7 +4,7 @@ import { MainLayoutComponent } from './MainLayout';
 
 describe('Component MainLayout', () => {
   it('should render without crashing', () => {
-    const component = shallow(<MainLayoutComponent />);
+    const component = shallow(<MainLayoutComponent loadCartRequest={()=>{const array = []; return array; }}/>);
     expect(component).toBeTruthy();
   });
 });

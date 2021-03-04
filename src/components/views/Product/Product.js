@@ -35,6 +35,18 @@ class Component extends React.Component {
     totalCost: null,
   };
 
+  setToCart = (product) => {
+    if(JSON.parse(localStorage.getItem('cart'))){
+      const cart = JSON.parse(localStorage.getItem('cart'));
+      cart.push(product);
+      localStorage.setItem('cart', JSON.stringify(cart));
+    } else {
+      const cart = [];
+      cart.push(product);
+      localStorage.setItem('cart', JSON.stringify(cart));
+    }
+  }
+
   componentDidMount(){
     const product = this.getOne(this.props.match.params.id.split('-')[1], this.props.match.params.id.split('-')[0]);
     this.setState({
@@ -110,6 +122,7 @@ class Component extends React.Component {
                 startIcon={<AddShoppingCartIcon></AddShoppingCartIcon>}
                 onClick={() => {
                   this.props.addToCart(this.state);
+                  this.setToCart(this.state);
                 }}
                 component={NavLink}
                 to='/cart'
