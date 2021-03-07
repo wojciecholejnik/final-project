@@ -1,0 +1,35 @@
+@import '../../../styles/settings.scss';
+
+.root {
+  display: flex;
+  width: 80%;
+  margin: 0 auto;
+  justify-content: center;
+  align-items:flex-start;
+  margin-top: 20px;
+  flex-wrap: wrap;
+
+  p, ul {
+    color:black;
+    font-weight: 400;
+    font-family: $menu-font;
+    font-size: 20px;
+    margin: 5px 0;
+    // text-shadow: 2px 2px $pink;
+  }
+
+  .wishes {
+    flex: 30%;
+    font-style: italic;
+    font-size: 18px;
+    margin: 0;
+  }
+}
+
+.orderContainer {
+  border-radius: 8px;
+  background-color: $pistachio;
+  padding: 5px;
+  margin: 10px;
+}
+

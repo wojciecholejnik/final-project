@@ -1,0 +1,9 @@
+@import '../../../styles/settings.scss';
+
+.root {
+  background-image: url(../../../images/background/candies.jpeg);
+  background-size: cover;
+  background-attachment: fixed;
+  min-height: 100vh;
+  max-width: 100vw;
+}

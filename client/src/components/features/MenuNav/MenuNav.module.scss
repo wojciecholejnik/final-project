@@ -1,0 +1,21 @@
+@import '../../../styles/settings.scss';
+
+.root {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.cart {
+  margin-right: 5px;
+}
+
+.cartIcon {
+  color: white;
+  border-radius: 8px;
+  padding: 5px;
+  transition: all 1s;
+  &:hover {
+    background-color: $pink;
+  }
+}
