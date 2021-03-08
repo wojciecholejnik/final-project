@@ -30,7 +30,7 @@ app.use('/api', cakesRoutes);
 app.use('/api', cupcakesRoutes);
 app.use('/api', ordersRoutes);
 
-app.get('/', (req, res) => {
+app.get('/*', (req, res) => {
   res.sendFile(path.join(__dirname + '/client/build/index.html'));
 });
 
