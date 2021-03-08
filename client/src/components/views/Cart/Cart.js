@@ -81,9 +81,10 @@ class Cart extends React.Component {
             <List>
               {cart.map(product => (
                 <ListItem key={product.id} button>
+                  {console.log('img', product.img)}
                   <ListItemAvatar>
                     <Avatar
-                      srcSet={product.type === 'cake' ? require('../../../images/products/cakes/' + product.img) : require('../../../images/products/cupcakes/' + product.img)}
+                      src={product.type === 'cake' ? require('../../../images/products/cakes/' + product.img) : require('../../../images/products/cupcakes/' + product.img)}
                       variant='square'
                       className={styles.avatar}
                     />
