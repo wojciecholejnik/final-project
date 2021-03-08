@@ -16,11 +16,17 @@ const cupcakes=[
     price: 10,
   },
 ];
+const stats = {
+  active: false,
+  error: false,
+}
+
+const loadProducts = () => '';
 
 
 describe('Component Order', () => {
   it('should render without crashing', () => {
-    const component = shallow(<OrderComponent cakes={cakes} cupcakes={cupcakes}/>);
+    const component = shallow(<OrderComponent cakes={cakes} cupcakes={cupcakes} stats={stats} loadProducts={loadProducts}/>);
     expect(component).toBeTruthy();
   });
 });

@@ -1,4 +1,88 @@
 @import '../../../styles/settings.scss';
 
-// .root {
-// }
+.root {
+  width: 80%;
+  margin: 0 auto;
+
+  .imgContainer {
+    display: flex;
+    justify-content: center;
+  }
+
+  .logoCake {
+    width: auto;
+    height: 70px;
+    padding: 7px;
+    margin-top: 20px;
+    border-radius: 50%;
+    background-color: $pistachio;
+    animation: moveRight 1.5s ease-in-out;
+  }
+
+  article {
+    background-color: $pistachio;
+    border-radius: 8px;
+    padding: 5px;
+    margin-top: 15px;
+  }
+
+  p.text {
+    color: white;
+    font-family: $menu-font;
+    font-size: 21px;
+  }
+
+  .innerContianer {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .articleContainer {
+    width: 45%;
+  }
+
+  table {
+    color: white;
+    font-family: $menu-font;
+    font-size: 21px;
+
+    thead {
+      font-style: italic;
+      padding-bottom: 20px;
+    }
+  }
+
+}
+
+@media screen and (max-width: 600px) {
+  .root {
+    padding-bottom: 60px;
+    width: 95%;
+
+    .innerContianer {
+      flex-direction: column;
+    }
+
+    .articleContainer {
+      width: 100%;
+    }
+
+    p.text {
+      font-size: 18px;
+    }
+  }
+}
+
+
+@keyframes moveRight {
+  1% {
+    opacity: 0;
+    transform: scale(0.1, 0.1);
+    transform: rotate(-359deg);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1, 1);
+    transform: rotate(0);
+  }
+}

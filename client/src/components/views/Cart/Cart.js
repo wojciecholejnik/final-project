@@ -71,7 +71,7 @@ class Cart extends React.Component {
     const { cart } = this.props;
     if(cart.length === 0){
       return(
-        <h2>Your cart is empty !</h2>
+        <div className={styles.root}><h2>Your cart is empty !</h2></div>
       );
     } else {
       return(

@@ -34,7 +34,6 @@ class Component extends React.Component {
       <div className={clsx(styles.root)}>
         <MenuButton name={'order'} />
         <MenuButton name={'about'} />
-        <MenuButton name={'contact'} />
         <div className={styles.cart}>
           <Badge component={NavLink} to={'/cart'} badgeContent={null || cart.length} color='primary'>
             <ShoppingCartIcon className={styles.cartIcon} fontSize='large'/>

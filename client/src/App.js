@@ -11,7 +11,6 @@ import { MainLayout } from './components/layout/MainLayout/MainLayout';
 import { Homepage } from './components/views/Homepage/Homepage';
 import { Order } from './components/views/Order/Order';
 import { About } from './components/views/About/About';
-import { Contact } from './components/views/Contact/Contact';
 import { Product } from './components/views/Product/Product';
 import { Cart } from './components/views/Cart/Cart';
 import { Orders } from './components/views/Orders/Orders';
@@ -35,7 +34,6 @@ const App = () => (
               <Route exact path='/order' component={Order} />
               <Route exact path='/product/:id' component={Product} />
               <Route exact path='/about' component={About} />
-              <Route exact path='/contact' component={Contact} />
               <Route exact path='/cart' component={Cart} />
               <Route exact path='/orders' component={Orders} />
               <Route path='*' component={NotFound} />

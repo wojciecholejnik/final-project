@@ -31,9 +31,9 @@ class Component extends React.Component {
   render(){
     this.changeWidth();
     if(this.props.stats.active){
-      return (<Loading />);
+      return (<div className={styles.root}><Loading /></div>);
     } else if(this.props.stats.error){
-      return (<h2>{this.props.stats.error}</h2>);
+      return (<div className={styles.root}><h2>{this.props.stats.error}</h2></div>);
     } else if(!this.props.stats.active){
 
       const {cakes, cupcakes} = this.props;
@@ -43,7 +43,7 @@ class Component extends React.Component {
           {/* Cakes horizontal swiper */}
           <div className={styles.swiperDiv}>
             <h2 className={styles.title}>These are our cakes: </h2>
-            <GridList spacing={15} className={styles.gridList} cols={this.state.width > 600 ? 2.2 : 1.15} cellHeight={230}>
+            <GridList spacing={6} className={styles.gridList} cols={this.state.width > 600 ? 3.2 : 1.15} cellHeight={this.state.width > 600 ? 230 : 200}>
               {cakes.map((tile) => (
                 <GridListTile component={NavLink} to={'/product/cake-' + tile._id} key={tile._id}>
                   <img className={styles.image} src={require('../../../images/products/cakes/' + tile.img)} alt={tile.title} />
@@ -58,7 +58,7 @@ class Component extends React.Component {
           {/* Cupcakes horizontal swiper */}
           <div className={styles.swiperDiv}>
             <h2 className={styles.title}>... and cupcakes: </h2>
-            <GridList spacing={15} className={styles.gridList} cols={this.state.width > 600 ? 2.2 : 1.15} cellHeight={230}>
+            <GridList spacing={6} className={styles.gridList} cols={this.state.width > 600 ? 3.2 : 1.15} cellHeight={this.state.width > 600 ? 230 : 200}>
               {cupcakes.map((tile) => (
                 <GridListTile component={NavLink} to={'/product/cupcake-' + tile._id } key={tile._id}>
                   <img className={styles.image} src={require('../../../images/products/cupcakes/' + tile.img)} alt={tile.title} />
