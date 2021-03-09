@@ -11,7 +11,7 @@ h2 {
   font-family: $menu-font;
   font-size: 40px;
   text-shadow: 2px 2px $pink;
-  margin: 5px;
+  margin: 50px 5px;
   text-align: center;
 }
 
@@ -56,5 +56,30 @@ button {
 
   &:hover {
     cursor: pointer;
+  }
+}
+
+.totalContainer h2 {
+  margin: 10px 5px;
+}
+
+@media screen and (max-width: 450px) {
+  h2 {
+    font-size: 30px;
+  }
+  .container {
+    width: 95%;
+  }
+  .avatar {
+    width: 70px;
+    height: 70px;
+    margin-right: 4px;
+  }
+  .wishesWrapper {
+    height: 65px;
+    overflow: auto;
+    background-color: rgba(167, 219, 249, 0.9);
+    padding: 0 5px;
+    border-radius: 8px;
   }
 }

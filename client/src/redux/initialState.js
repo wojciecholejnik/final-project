@@ -4,6 +4,7 @@ export const initialState = {
       cakes: [],
       cupcakes: [],
     },
+    getOne: {},
     loading: {
       active: false,
       error: false,

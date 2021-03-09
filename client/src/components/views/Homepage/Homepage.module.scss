@@ -39,14 +39,6 @@
     text-align: center;
   }
 
-  .subtitle {
-    color: white;
-    font-family: $menu-font;
-    font-size: 30px;
-    text-shadow: 2px 2px $pink;
-    margin-top: 0;
-    text-align: center;
-  }
 }
 
 @keyframes moveDown {
@@ -73,10 +65,10 @@
   }
 }
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 340px) {
   .root {
-    .subtitle {
-      display: none;
+    .title {
+      font-size: 35px;
     }
   }
 }

@@ -23,6 +23,14 @@ const shortid = require('shortid');
 
 
 class Cart extends React.Component {
+  async componentDidMount(){
+    //set today date to state
+    await this.props.loadOrders();
+    const today = new Date();
+    this.setState({date: today.getDate() + '.' + (1 + today.getMonth()) + '.' + today.getFullYear()});
+    this.setState({totalPrice: this.setTotal(this.props.cart)});
+  }
+
   state = {
     _id: shortid.generate(),
     name: '',
@@ -52,13 +60,6 @@ class Cart extends React.Component {
     window.alert('Your order has been placed for processing');
   }
 
-  componentDidMount(){
-    //set today date to state
-    const today = new Date();
-    this.setState({date: today.getDate() + '.' + (1 + today.getMonth()) + '.' + today.getFullYear()});
-    this.props.loadOrders();
-  }
-
   removeFromLocal = (id) => {
     const local = JSON.parse(localStorage.getItem('cart'));
     const product = local.find(product => product.id === id);
@@ -76,12 +77,10 @@ class Cart extends React.Component {
     } else {
       return(
         <div className={clsx(styles.root)}>
-          <h2>Cart:</h2>
           <div className={styles.container}>
             <List>
               {cart.map(product => (
                 <ListItem key={product.id} button>
-                  {console.log('img', product.img)}
                   <ListItemAvatar>
                     <Avatar
                       src={product.type === 'cake' ? require('../../../images/products/cakes/' + product.img) : require('../../../images/products/cupcakes/' + product.img)}
@@ -109,11 +108,13 @@ class Cart extends React.Component {
                           {'total cost: $' + product.totalCost}
                         </Typography>
                         {product.wishes ? (
-                          <Typography
+                          <div className={styles.wishesWrapper}>
+                            <Typography
                             variant='body1'
                           >
                             {'wishes: ' + product.wishes}
                           </Typography>
+                          </div>
                         ) : ''}
                       </React.Fragment>
                     }

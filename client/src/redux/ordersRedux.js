@@ -34,6 +34,7 @@ export const loadOrdersRequest = () => {
   };
 };
 
+
 /* reducer */
 export const reducer = (statePart = [], action = {}) => {
   switch (action.type) {

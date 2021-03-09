@@ -18,52 +18,79 @@ img {
   border-radius: 8px;
 }
 
-
 .container {
   background-color: $pistachio;
-  // height: 100%;
   min-height: 200px;
+  max-width:  500px;
   border-radius: 8px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   padding: 0 0 10px 0;
+  margin: 0 auto;
 }
 
 .innerContainer {
   display: flex;
   justify-content: space-between;
-  padding: 0 30px;
+  padding: 0 5px;
   width: 100%;
 }
 
 .optionContainer {
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   width: 100%;
-  padding: 0 30px;
-}
+  flex-direction: row;
+  padding: 0 15px;
+  margin-top: 20px;
 
-.amount {
-  width: 50px;
-  margin: 10px;
 }
 
 .textField {
-  width: 230px;
+  padding-left: 10px;
 }
+
+.amount {
+  width: 60px;
+  padding-right: 10px;
+}
+
 
 .title, .price {
   color: white;
   font-family: $menu-font;
   font-size: 40px;
   text-shadow: 2px 2px $pink;
-  margin: 5px;
   text-align: center;
 }
 
 
 .button {
   color: white;
+  margin-top: 20px;
+}
+
+@media screen and (max-width: 450px) {
+  .root {
+    .innerContainer {
+      padding: 0 5px;
+      align-content: center;
+    }
+    .title, .price {
+      font-size: 26px;
+      text-align: left;
+    }
+    .optionContainer {
+      flex-direction: row;
+    }
+    .textField {
+      width: 90%;
+    }
+    // .amount {
+    //   width: 50%;
+
+    // }
+  }
 }
