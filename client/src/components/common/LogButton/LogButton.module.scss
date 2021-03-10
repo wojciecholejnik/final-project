@@ -1,0 +1,19 @@
+@import '../../../styles/settings.scss';
+
+.root {
+  padding: 8px 4px;
+  &:hover {
+    cursor: pointer;
+    background-color: $pink;
+    border-radius: 10px;
+  }
+  @media screen and (max-width: 340px) {
+    .root {
+      padding: 0;
+      .MuiAvatar-root {
+        width: 30px;
+        height: 30px;
+      }
+    }
+  }
+}

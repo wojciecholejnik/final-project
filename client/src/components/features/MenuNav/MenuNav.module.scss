@@ -7,7 +7,11 @@
 }
 
 .cart {
-  margin-right: 5px;
+  margin-right: 15px;
+}
+
+.log {
+  margin: auto;
 }
 
 .cartIcon {
@@ -17,5 +21,20 @@
   transition: all 1s;
   &:hover {
     background-color: $pink;
+  }
+}
+
+@media screen and (max-width: 340px) {
+  .root {
+    .cart {
+      margin-right: 7px;
+      .cartIcon {
+        font-size: 30px;
+      }
+      .MuiBadge-badge {
+        width: 14px;
+        height: 14px;
+      }
+    }
   }
 }
