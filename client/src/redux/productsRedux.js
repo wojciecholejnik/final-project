@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { API_URL } from '../config';
+import { API_URL} from '../config';
 
 /* selectors */
 export const getProductStats = ({products}) => products.loading;
@@ -105,7 +105,8 @@ export const reducer = (statePart = [], action = {}) => {
         ...statePart,
         products: action.payload,
       };
-    } case LOAD_ONE: {
+    }
+    case LOAD_ONE: {
       return {
         ...statePart,
         product: action.payload,

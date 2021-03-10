@@ -36,7 +36,6 @@ class Component extends React.Component {
         <div className={styles.log}>
           <LogButton account={account}/>
         </div>
-
       </div>
     );
   }

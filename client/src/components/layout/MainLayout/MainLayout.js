@@ -7,17 +7,23 @@ import clsx from 'clsx';
 
 import { connect } from 'react-redux';
 import { loadCartRequest } from '../../../redux/cartRedux';
+import { loadAccountRequest, changeAccount } from '../../../redux/accountRedux';
+import { USER_URL } from '../../../config';
+import axios from 'axios';
 
 import styles from './MainLayout.module.scss';
 
 class Component extends React.Component {
 
-  componentDidMount(){
+  async componentDidMount  (){
     this.props.loadCartRequest();
+    let account = await axios.get(`${USER_URL}`);
+      this.props.loadAccount(account.data);
   }
 
   render(){
     const { className, children } = this.props;
+
     return (
       <div className={clsx(className, styles.root)}>
         <Header />
@@ -41,6 +47,7 @@ Component.propTypes = {
 
 const mapDispatchToProps = dispatch => ({
   loadCartRequest: () => dispatch(loadCartRequest()),
+  loadAccount: (payload) => dispatch(changeAccount(payload)),
 });
 
 const Container = connect(null, mapDispatchToProps)(Component);

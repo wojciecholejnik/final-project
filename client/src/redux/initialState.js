@@ -19,8 +19,8 @@ export const initialState = {
     },
   },
   account: {
-    name: 'Wojtek',
-    email: 'asdasd@asda.sd',
+    name: null,
+    email: null,
     img: null,
   }
 };
