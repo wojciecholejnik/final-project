@@ -9,6 +9,7 @@ const passportSetup = require('./config/passport');
 const passport = require('passport');
 const session = require('express-session');
 
+
 const app = express();
 
 // init session mechanism
@@ -24,7 +25,6 @@ mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true });
 const db = mongoose.connection;
 db.once('open', () => {
   console.log('Connected to the database');
-
 });
 db.on('error', err => console.log('Error ' + err));
 
@@ -32,7 +32,6 @@ db.on('error', err => console.log('Error ' + err));
 app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
-// app.use(express.static(path.join(__dirname, '/public')));
 app.use(express.static(path.join(__dirname, '/client/build')));
 
 // routes
@@ -52,16 +51,15 @@ app.get('/user', function(req, res, next) {
   });
 });
 
-app.get('/auth/google',
-  passport.authenticate('google', { scope: ['email', 'profile'] }));
+app.get('/auth/google', passport.authenticate('google', { scope: ['email', 'profile'] }));
 
-  app.get('/auth/google/callback', passport.authenticate('google', { failureRedirect: '/user/no-permission' }),
+app.get('/auth/google/callback/', passport.authenticate('google', { failureRedirect: '/user/no-permission' }),
   (req, res) => {
     res.redirect('/');
   }
 );
 
-app.get('/', (req, res) => {
+app.get('*', (req, res) => {
   res.sendFile(path.join(__dirname + '/client/build/index.html'));
 });
 
