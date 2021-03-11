@@ -7,7 +7,7 @@ import clsx from 'clsx';
 
 import { connect } from 'react-redux';
 import { loadCartRequest } from '../../../redux/cartRedux';
-import { loadAccountRequest, changeAccount } from '../../../redux/accountRedux';
+import { changeAccount } from '../../../redux/accountRedux';
 import { USER_URL } from '../../../config';
 import axios from 'axios';
 
@@ -18,7 +18,7 @@ class Component extends React.Component {
   async componentDidMount  (){
     this.props.loadCartRequest();
     let account = await axios.get(`${USER_URL}`);
-      this.props.loadAccount(account.data);
+    this.props.loadAccount(account.data);
   }
 
   render(){

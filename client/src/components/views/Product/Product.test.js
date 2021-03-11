@@ -25,7 +25,13 @@ const match={
 
 describe('Component Product', () => {
   it('should render without crashing', () => {
-    const component = shallow(<ProductComponent stats={stats} product={product} match={match} addToCar={addToCart}/>);
+    const component = shallow(<ProductComponent
+      stats={stats}
+      product={product}
+      match={match}
+      addToCar={addToCart}
+      getOneRequest={() => ''}
+    />);
     expect(component).toBeTruthy();
   });
 });

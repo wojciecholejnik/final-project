@@ -65,7 +65,7 @@ app.get('*', (req, res) => {
 
 app.use((req, res) => {
   res.status(404).send({ message: 'Not found...' });
-})
+});
 
 const port = process.env.PORT || 7000;
 app.listen(port, () => {

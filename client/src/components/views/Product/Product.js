@@ -7,6 +7,8 @@ import Grid from '@material-ui/core/Grid';
 import Button from '@material-ui/core/Button';
 import AddShoppingCartIcon from '@material-ui/icons/AddShoppingCart';
 import { TextField } from '@material-ui/core';
+import ExpandLessIcon from '@material-ui/icons/ExpandLess';
+import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 
 import clsx from 'clsx';
 
@@ -57,6 +59,21 @@ class Component extends React.Component {
     }
   }
 
+  setAmount = (type) => {
+    if(type === 'more'){
+
+      this.setState({
+        amount: this.state.amount += 1,
+      })
+    } else if(type === 'less'){
+      if(this.state.amount > 1){
+        this.setState({
+          amount: this.state.amount -= 1,
+        })
+      }
+    }
+  }
+
 
   render(){
     const matchType = this.props.match.params.id.split('-')[0];
@@ -91,17 +108,19 @@ class Component extends React.Component {
                   </div>
                   <div className={clsx(styles.optionWrapper, styles.amountWrapper, styles.amount)}>
                     <TextField
-                      onChange={(event)=>{
-                        this.setState({
-                          amount: event.target.value,
-                          totalCost: this.state.price * event.target.value,
-                        });
-                      }}
-                      defaultValue={1}
+                      value={this.state.amount}
                       className={clsx(styles.textField, styles.amount)}
                       label='Amount:'
                       type='number'
+
+                      onChange={(event) => {
+                        this.setState({amount: event.target.value});
+                      }}
                     ></TextField>
+                    <div className={styles.buttons}>
+                      <ExpandLessIcon onClick={() => {this.setAmount('more')}}/>
+                      <ExpandMoreIcon onClick={() => {this.setAmount('less')}}/>
+                    </div>
                   </div>
                 </div>
                 <Button
