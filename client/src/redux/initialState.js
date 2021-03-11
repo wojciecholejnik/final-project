@@ -18,6 +18,11 @@ export const initialState = {
       error: false,
     },
   },
+  // account: {
+  //   name: 'Wojciech',
+  //   email: 'wojciecholejnik5@gmail.com"',
+  //   img: 'https://lh3.googleusercontent.com/a-/AOh14GhnbqLWdIP7zhBfhJn7VMCZilNM0VUjopPkPjPW=s96-c',
+  // }
   account: {
     name: null,
     email: null,

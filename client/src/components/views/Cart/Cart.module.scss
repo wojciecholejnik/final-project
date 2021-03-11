@@ -63,6 +63,34 @@ button {
   margin: 10px 5px;
 }
 
+.needLog {
+  display: flex;
+  flex-direction: column;
+  justify-items: center;
+  align-items: center;
+  margin-bottom: 20px;
+
+  h4 {
+    color:palevioletred;
+    font-family: $menu-font;
+    font-size: 17px;
+  }
+
+  a {
+    color: white;
+    text-transform: uppercase;
+    text-decoration: none;
+    font-family: $menu-font;
+    font-size: 22px;
+    padding: 10px;
+    border-radius: 8px;
+    transition: all 1s;
+    &:hover {
+      background-color: $pink;
+    }
+  }
+}
+
 @media screen and (max-width: 450px) {
   h2 {
     font-size: 30px;
@@ -75,11 +103,17 @@ button {
     height: 70px;
     margin-right: 4px;
   }
+  .formContainer {
+    width: 95%;
+  }
   .wishesWrapper {
     height: 65px;
     overflow: auto;
     background-color: rgba(167, 219, 249, 0.9);
     padding: 0 5px;
     border-radius: 8px;
+  }
+  .needLog h4 {
+    font-size: 15px;
   }
 }

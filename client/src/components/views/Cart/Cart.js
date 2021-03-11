@@ -10,15 +10,18 @@ import ListItemText from '@material-ui/core/ListItemText';
 import IconButton from '@material-ui/core/IconButton';
 import DeleteIcon from '@material-ui/icons/Delete';
 import { TextField } from '@material-ui/core';
+import { Typography } from '@material-ui/core';
 
 import clsx from 'clsx';
 
 import { connect } from 'react-redux';
 import { getCart, addToCart, removeOneFromCart, removeCart, sendOrderRequest } from '../../../redux/cartRedux';
 import { loadOrdersRequest } from '../../../redux/ordersRedux';
+import { getAccount } from '../../../redux/accountRedux';
 
 import styles from './Cart.module.scss';
-import { Typography } from '@material-ui/core';
+import { MAIN_URL } from '../../../config';
+
 const shortid = require('shortid');
 
 
@@ -33,9 +36,9 @@ class Cart extends React.Component {
 
   state = {
     _id: shortid.generate(),
-    name: '',
+    name: this.props.account.name,
     phone: '',
-    email: '',
+    email: this.props.account.email,
     date: '',
     products: this.props.cart,
     totalPrice: this.setTotal(this.props.cart),
@@ -69,7 +72,7 @@ class Cart extends React.Component {
   }
 
   render(){
-    const { cart } = this.props;
+    const { cart, account } = this.props;
     if(cart.length === 0){
       return(
         <div className={styles.root}><h2>Your cart is empty !</h2></div>
@@ -134,27 +137,22 @@ class Cart extends React.Component {
               <h2>Total cost: ${this.state.totalPrice}</h2>
             </div>
             <div className={styles.formContainer}>
-              <form className={styles.form} onSubmit={this.submitForm}>
+              {account.name && account.email ? (
+                <form className={styles.form} onSubmit={this.submitForm}>
                 <TextField
-                  onChange={(event) => {
-                    this.setState({name: event.target.value});
-                  }}
                   className={styles.textField}
-                  label='Type your name:'
-                  required
-                  autoComplete="off"
+                  label='Your name:'
+                  disabled
+                  value={this.state.name}
                   fullWidth
                   margin="dense"
                 ></TextField>
                 <TextField
-                  onChange={(event) => {
-                    this.setState({email: event.target.value});
-                  }}
                   className={styles.textField}
-                  label='Type your email:'
-                  required
+                  label='E-mail:'
+                  disabled
+                  value={this.state.email}
                   fullWidth
-                  type="email"
                   margin="dense"
                 ></TextField>
                 <TextField
@@ -173,6 +171,12 @@ class Cart extends React.Component {
                   type='submit'
                 >Submit</button>
               </form>
+              ) : (
+                <div className={styles.needLog}>
+                  <h4>To place an order click below and log in</h4>
+                  <a href={`${MAIN_URL}/auth/google`} >Log in</a>
+                </div>
+              )}
             </div>
           </div>
         </div>
@@ -188,10 +192,12 @@ Cart.propTypes = {
   loadCartRequest: PropTypes.func,
   sendOrder: PropTypes.func,
   loadOrders: PropTypes.func,
+  account: PropTypes.object,
 };
 
 const mapStateToProps = state => ({
   cart: getCart(state),
+  account: getAccount(state)
 });
 
 const mapDispatchToProps = dispatch => ({
