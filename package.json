@@ -6,6 +6,7 @@
   "author": "Wojciech Olejnik <wojciecholejnik5@gmail.com>",
   "license": "MIT",
   "scripts": {
+    "build": "cd client && yarn install && yarn build",
     "start": "nodemon server.js"
   },
   "dependencies": {
@@ -32,13 +33,9 @@
     "react-scripts": "3.0.1",
     "reactstrap": "^8.0.1",
     "redux": "4.0.1",
-    "redux-devtools-extension": "^2.13.9",
+    "redux-devtools-extension": "^2.13.8",
     "redux-thunk": "2.3.0",
     "shortid": "^2.2.16",
     "snyk": "1.235.0"
-  },
-  "engines": {
-    "node": "10.x",
-    "yarn": "1.x"
   }
 }

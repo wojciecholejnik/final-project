@@ -5,6 +5,7 @@ const path = require('path');
 const cakesRoutes = require('./routes/cakes.routes');
 const cupcakesRoutes = require('./routes/cupcakes.routes');
 const ordersRoutes = require('./routes/orders.routes');
+// eslint-disable-next-line no-unused-vars
 const passportSetup = require('./config/passport');
 const passport = require('passport');
 const session = require('express-session');
