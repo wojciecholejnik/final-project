@@ -5,6 +5,7 @@ import { Avatar } from '@material-ui/core';
 import { MAIN_URL } from '../../../config';
 
 import styles from './LogButton.module.scss';
+import { GoogleLog } from '../GoogleLog/GoogleLog';
 
 
 export function LogButton(props) {
@@ -46,7 +47,12 @@ export function LogButton(props) {
         onClose={handleClose}
       >
         <MenuItem disabled onClick={handleClose}>Please:</MenuItem>
-        <MenuItem onClick={() => {handleClose()}}><a style={{textDecoration: 'none', color: 'black'}} href={`${MAIN_URL}/auth/google`} >Log in</a></MenuItem>
+        <MenuItem
+          onClick={() => {handleClose()}}
+        >
+          {/* <a style={{textDecoration: 'none', color: 'black'}} href={`${MAIN_URL}/auth/google`} >Log in</a> */}
+          <GoogleLog />
+        </MenuItem>
       </Menu>
     )}
     </div>

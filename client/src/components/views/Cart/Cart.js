@@ -18,10 +18,10 @@ import { loadOrdersRequest } from '../../../redux/ordersRedux';
 import { getAccount } from '../../../redux/accountRedux';
 
 import styles from './Cart.module.scss';
-import { MAIN_URL } from '../../../config';
+import { CartWishes } from '../../common/CartWishes/CartWishes';
+import { GoogleLog } from '../../common/GoogleLog/GoogleLog';
 
 const shortid = require('shortid');
-
 
 class Cart extends React.Component {
   async componentDidMount(){
@@ -103,7 +103,7 @@ class Cart extends React.Component {
           <div className={styles.container}>
             <List>
               {cart.map(product => (
-                <ListItem key={product.id} button>
+                <ListItem divider key={product.id}>
                   <ListItemAvatar>
                     <Avatar
                       src={product.type === 'cake' ? require('../../../images/products/cakes/' + product.img) : require('../../../images/products/cupcakes/' + product.img)}
@@ -112,7 +112,20 @@ class Cart extends React.Component {
                     />
                   </ListItemAvatar>
                   <ListItemText
-                    primary={product.title}
+                    primary={
+                      <React.Fragment>
+                        <div className={styles.titleRemove}>
+                          {product.title}
+                          <button className={clsx(styles.amountButton, styles.deleteButton)} onClick={() => {
+                              this.props.removeOneFromCart(product.id);
+                              this.removeFromLocal(product.id);
+                            }}
+                          >
+                            <DeleteIcon />
+                          </button>
+                        </div>
+                      </React.Fragment>
+                    }
                     secondary={
                       <React.Fragment>
                         <Typography
@@ -134,22 +147,9 @@ class Cart extends React.Component {
                         </Typography>
                         {product.wishes ? (
                           <div className={styles.wishesWrapper}>
-                            <Typography
-                            variant='body1'
-                          >
-                            {'wishes: ' + product.wishes}
-                          </Typography>
+                            <CartWishes wishes={product.wishes}/>
                           </div>
                         ) : ''}
-                        <div className={styles.removeContainer}>
-                          <button className={clsx(styles.amountButton, styles.deleteButton)} onClick={() => {
-                              this.props.removeOneFromCart(product.id);
-                              this.removeFromLocal(product.id);
-                            }}
-                          >
-                            <DeleteIcon />
-                          </button>
-                        </div>
                       </React.Fragment>
                     }
                   />
@@ -197,7 +197,7 @@ class Cart extends React.Component {
               ) : (
                 <div className={styles.needLog}>
                   <h4>To place an order click below and log in</h4>
-                  <a href={`${MAIN_URL}/auth/google`} >Log in</a>
+                  <GoogleLog />
                 </div>
               )}
             </div>

@@ -1,0 +1,31 @@
+@import '../../../styles/settings.scss';
+
+.root {
+  a {
+    background-color: #DC4C3E;
+    color: white;
+    text-decoration: none;
+    border-radius: 8px;
+    transition: all 1s;
+    display: flex;
+    align-items: center;
+    &:hover {
+      cursor: pointer;
+    }
+
+    i {
+      font-size: 20px;
+      padding: 0 8px;
+      min-height: 100%;
+    }
+
+    .container {
+      border-left: 1px solid #C14337;
+      padding: 0 7px;
+    }
+
+    p {
+      margin: 5px 0;
+    }
+  }
+}

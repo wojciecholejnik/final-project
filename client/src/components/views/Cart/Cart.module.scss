@@ -24,8 +24,8 @@ h2 {
 }
 
 .avatar {
-  width: 140px;
-  height: 140px;
+  width: 160px;
+  height: 160px;
   margin-right: 10px;
 }
 
@@ -65,8 +65,9 @@ button {
   margin: 0 0 0 4px;
 }
 
-.removeContainer{
+.titleRemove{
   display: flex;
+  justify-content: space-between;
 
 }
 
@@ -94,44 +95,46 @@ button {
     font-size: 17px;
   }
 
-  a {
-    color: white;
-    text-transform: uppercase;
-    text-decoration: none;
-    font-family: $menu-font;
-    font-size: 22px;
-    padding: 10px;
-    border-radius: 8px;
-    transition: all 1s;
-    &:hover {
-      background-color: $pink;
-    }
-  }
+  // a {
+  //   background-color: #DC4C3E;
+  //   color: white;
+  //   text-decoration: none;
+  //   border-radius: 8px;
+  //   transition: all 1s;
+  //   display: flex;
+  //   align-items: center;
+  //   &:hover {
+  //     background-color: $pink;
+  //   }
+
+  //   i {
+  //     font-size: 20px;
+  //     padding: 0 8px;
+  //     min-height: 100%;
+  //     border-right: 1px solid gray;
+  //   }
+  // }
 }
 
 @media screen and (max-width: 450px) {
   h2 {
     font-size: 30px;
   }
+
   .container {
     width: 95%;
   }
+
   .avatar {
     width: 70px;
     height: 70px;
     margin-right: 4px;
   }
+
   .formContainer {
     width: 95%;
   }
-  .wishesWrapper {
-    height: 65px;
-    overflow: auto;
-    background-color: rgba(167, 219, 249, 0.9);
-    padding: 0 5px;
-    border-radius: 8px;
-    margin-bottom: 5px;
-  }
+
   .needLog h4 {
     font-size: 15px;
   }
