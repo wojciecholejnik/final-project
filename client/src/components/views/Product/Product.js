@@ -33,7 +33,6 @@ class Component extends React.Component {
         totalCost: this.props.product.price * this.state.amount,
       });
     }
-
   }
 
   state = {
@@ -61,24 +60,31 @@ class Component extends React.Component {
 
   setAmount = (type) => {
     if(type === 'more'){
-
+      let stateAmount = this.state.amount + 1;
       this.setState({
-        amount: this.state.amount += 1,
+        amount: stateAmount,
       })
     } else if(type === 'less'){
+      let stateAmount = this.state.amount - 1;
       if(this.state.amount > 1){
         this.setState({
-          amount: this.state.amount -= 1,
+          amount: stateAmount,
         })
       }
     }
+  }
+
+  buttonTransition = (type) => {
+    let svg = document.getElementById(type);
+    svg.classList.add(styles.clicked);
+    setTimeout(()=>{svg.classList.remove(styles.clicked)}, 100);
   }
 
 
   render(){
     const matchType = this.props.match.params.id.split('-')[0];
 
-    if(this.props.stats.active ||  !this.props.product){
+    if(this.props.stats.active || !this.props.product){
       return (<div className={styles.root}><Loading /></div>);
     } else if(this.props.stats.error){
       return (<div className={styles.root}><h2>{this.props.stats.error}</h2></div>);
@@ -107,20 +113,21 @@ class Component extends React.Component {
                     ></TextField>
                   </div>
                   <div className={clsx(styles.optionWrapper, styles.amountWrapper, styles.amount)}>
-                    <TextField
-                      value={this.state.amount}
-                      className={clsx(styles.textField, styles.amount)}
-                      label='Amount:'
-                      type='number'
-
-                      onChange={(event) => {
-                        this.setState({amount: event.target.value});
-                      }}
-                    ></TextField>
-                    <div className={styles.buttons}>
-                      <ExpandLessIcon onClick={() => {this.setAmount('more')}}/>
-                      <ExpandMoreIcon onClick={() => {this.setAmount('less')}}/>
+                  <p className={styles.amountLabel}>Amount:</p>
+                    <div className={styles.amountInner}>
+                      <p className={styles.amountValue}>{this.state.amount}</p>
+                      <div className={styles.buttons}>
+                        <ExpandLessIcon id='more' onClick={() => {
+                          this.setAmount('more');
+                          this.buttonTransition('more');
+                        }}/>
+                        <ExpandMoreIcon id='less' onClick={() => {
+                          this.setAmount('less')
+                          this.buttonTransition('less')
+                          }}/>
+                      </div>
                     </div>
+
                   </div>
                 </div>
                 <Button
@@ -141,7 +148,6 @@ class Component extends React.Component {
               </div>
             </Grid>
           </Grid>
-
         </div>
       );
     }
@@ -154,9 +160,6 @@ Component.propTypes = {
   product: PropTypes.object,
   stats: PropTypes.object,
 };
-
-
-
 
 const mapStateToProps = state => ({
   product: getOne(state),

@@ -41,32 +41,49 @@ img {
 .optionContainer {
   display: flex;
   justify-content: space-between;
+  align-items: center;
   width: 100%;
   flex-direction: row;
   padding: 0 15px;
   margin-top: 20px;
-
 }
 
 .textField {
   padding-left: 10px;
+  textarea {
+    width: 150%;
+  }
 }
 
-.amount {
-  width: 60px;
-  margin-right: 17px;
-  position: relative;
+.amountValue {
+  margin: 0;
+  font-size: 18px;
 }
+
+.amountLabel {
+  margin: 0;
+}
+
+.amountInner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
 
 .buttons {
-  display: none;
+  display: flex;
   flex-direction: column;
-  position: absolute;
-  top: 3px;
-  right: -28px;
-  height: 100%;
-}
 
+  svg {
+    font-size: 30px;
+  }
+
+  svg.clicked {
+    border: 2px solid $pink;
+    border-radius: 50%;
+  }
+}
 
 .title, .price {
   color: white;
@@ -76,37 +93,32 @@ img {
   text-align: center;
 }
 
-
 .button {
   color: white;
   margin-top: 20px;
 }
 
+
 @media screen and (max-width: 450px) {
   .root {
     width: 95%;
+
     .innerContainer {
       padding: 0 5px;
       align-content: center;
     }
+
     .title, .price {
       font-size: 26px;
       text-align: left;
     }
+
     .optionContainer {
       flex-direction: row;
     }
+
     .textField {
       width: 90%;
-    }
-
-  }
-}
-
-@media screen and (max-width: 1025px) {
-  .root {
-    .buttons {
-      display: flex;
     }
   }
 }
