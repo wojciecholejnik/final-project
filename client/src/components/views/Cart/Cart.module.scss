@@ -4,6 +4,11 @@
   display: flex;
   flex-direction: column;
   padding-bottom: 70px;
+
+  li {
+    display: flex;
+    align-items: flex-start;
+  }
 }
 
 h2 {
@@ -94,26 +99,6 @@ button {
     font-family: $menu-font;
     font-size: 17px;
   }
-
-  // a {
-  //   background-color: #DC4C3E;
-  //   color: white;
-  //   text-decoration: none;
-  //   border-radius: 8px;
-  //   transition: all 1s;
-  //   display: flex;
-  //   align-items: center;
-  //   &:hover {
-  //     background-color: $pink;
-  //   }
-
-  //   i {
-  //     font-size: 20px;
-  //     padding: 0 8px;
-  //     min-height: 100%;
-  //     border-right: 1px solid gray;
-  //   }
-  // }
 }
 
 @media screen and (max-width: 450px) {
@@ -126,8 +111,8 @@ button {
   }
 
   .avatar {
-    width: 70px;
-    height: 70px;
+    width: 100px;
+    height: 100px;
     margin-right: 4px;
   }
 

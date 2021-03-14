@@ -7,8 +7,6 @@ import Grid from '@material-ui/core/Grid';
 import Button from '@material-ui/core/Button';
 import AddShoppingCartIcon from '@material-ui/icons/AddShoppingCart';
 import { TextField } from '@material-ui/core';
-import ExpandLessIcon from '@material-ui/icons/ExpandLess';
-import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 
 import clsx from 'clsx';
 
@@ -117,14 +115,18 @@ class Component extends React.Component {
                     <div className={styles.amountInner}>
                       <p className={styles.amountValue}>{this.state.amount}</p>
                       <div className={styles.buttons}>
-                        <ExpandLessIcon id='more' onClick={() => {
+                        <button className={clsx(styles.amountButton, styles.moreButton)} id='more' onClick={() => {
                           this.setAmount('more');
                           this.buttonTransition('more');
-                        }}/>
-                        <ExpandMoreIcon id='less' onClick={() => {
+                        }}>
+                          +
+                        </button>
+                        <button className={styles.amountButton} id='less' onClick={() => {
                           this.setAmount('less')
                           this.buttonTransition('less')
-                          }}/>
+                          }}>
+                            -
+                          </button>
                       </div>
                     </div>
 

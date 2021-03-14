@@ -51,7 +51,7 @@ img {
 .textField {
   padding-left: 10px;
   textarea {
-    width: 150%;
+    width: 350px;
   }
 }
 
@@ -76,14 +76,29 @@ img {
 .buttons {
   display: flex;
   flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
 
-  svg {
+  .amountButton {
     font-size: 30px;
+    width: auto;
+    margin: 0;
+    padding: 0;
+    width: 30px;
+    height: 30px;
+    line-height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 1s;
   }
 
-  svg.clicked {
-    border: 2px solid $pink;
-    border-radius: 50%;
+  .clicked {
+    border: 2px solid white;
+  }
+
+  .moreButton {
+    margin-bottom: 5px;
   }
 }
 
@@ -100,6 +115,11 @@ img {
   margin-top: 20px;
 }
 
+@media screen and (max-width: 600px) {
+  .root .textField textarea {
+    width: 200px
+  }
+}
 
 @media screen and (max-width: 450px) {
   .root {
@@ -120,7 +140,12 @@ img {
     }
 
     .textField {
-      width: 90%;
+      textarea {
+        width: 170px;
+      }
     }
+
   }
 }
+
+

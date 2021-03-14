@@ -52,7 +52,7 @@ class Component extends React.Component {
 Component.propTypes = {
   children: PropTypes.node,
   className: PropTypes.string,
-  wishes: PropTypes.object,
+  wishes: PropTypes.string,
 };
 
 

@@ -7,8 +7,8 @@ import styles from './GoogleLog.module.scss';
 const Component = () => (
   <div className={styles.root}>
     <a href={`${MAIN_URL}/auth/google`} >
-      <i class="fab fa-google"></i>
-      <div class={styles.container}>
+      <i className={'fab fa-google'}></i>
+      <div className={styles.container}>
         <p>Log in with Google</p>
       </div>
     </a>
