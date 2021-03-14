@@ -53,10 +53,28 @@ button {
   text-shadow: 2px 2px $pink;
   border: none;
   outline: none;
+  line-height: 22px;
 
   &:hover {
     cursor: pointer;
   }
+}
+
+.amountButton {
+  width: 30px;
+  margin: 0 0 0 4px;
+}
+
+.removeContainer{
+  display: flex;
+
+}
+
+.deleteButton {
+  margin: 0;
+  display: flex;
+  text-align: center;
+  justify-content: center;
 }
 
 .totalContainer h2 {
@@ -112,6 +130,7 @@ button {
     background-color: rgba(167, 219, 249, 0.9);
     padding: 0 5px;
     border-radius: 8px;
+    margin-bottom: 5px;
   }
   .needLog h4 {
     font-size: 15px;

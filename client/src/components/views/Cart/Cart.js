@@ -5,9 +5,7 @@ import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemAvatar from '@material-ui/core/ListItemAvatar';
 import Avatar from '@material-ui/core/Avatar';
-import ListItemSecondaryAction from '@material-ui/core/ListItemSecondaryAction';
 import ListItemText from '@material-ui/core/ListItemText';
-import IconButton from '@material-ui/core/IconButton';
 import DeleteIcon from '@material-ui/icons/Delete';
 import { TextField } from '@material-ui/core';
 import { Typography } from '@material-ui/core';
@@ -32,6 +30,7 @@ class Cart extends React.Component {
     const today = new Date();
     this.setState({date: today.getDate() + '.' + (1 + today.getMonth()) + '.' + today.getFullYear()});
     this.setState({totalPrice: this.setTotal(this.props.cart)});
+    this.setState({products: this.props.cart});
   }
 
   state = {
@@ -40,9 +39,30 @@ class Cart extends React.Component {
     phone: '',
     email: this.props.account.email,
     date: '',
-    products: this.props.cart,
+    products: null,
     totalPrice: this.setTotal(this.props.cart),
   };
+
+  changeAmount(type, product){
+    let products = this.state.products;
+    const index = this.state.products.indexOf(product);
+    const findedProduct = this.state.products[index];
+    const amount = findedProduct.amount;
+    let newAmount = null;
+
+    if(type === 'more' ){
+      newAmount = amount + 1;
+    } else if(type === 'less' && amount > 1){
+      newAmount = amount - 1;
+    } else if(type === 'less' && amount === 1){
+      newAmount = 1;
+    }
+    let newProduct = {...findedProduct, amount: newAmount, totalCost: findedProduct.price * newAmount};
+    products[index] = newProduct;
+    this.setState({products: products});
+    this.setState({totalPrice: this.setTotal(products)});
+    localStorage.setItem('cart', JSON.stringify(this.state.products));
+  }
 
 
   setTotal(products){
@@ -104,6 +124,8 @@ class Cart extends React.Component {
                           variant='body1'
                         >
                           {'amount: x' + product.amount}
+                          <button className={styles.amountButton} onClick={() => this.changeAmount('more', product)}>+</button>
+                          <button className={styles.amountButton} onClick={() => this.changeAmount('less', product)}>-</button>
                         </Typography>
                         <Typography
                           variant='body1'
@@ -119,17 +141,18 @@ class Cart extends React.Component {
                           </Typography>
                           </div>
                         ) : ''}
+                        <div className={styles.removeContainer}>
+                          <button className={clsx(styles.amountButton, styles.deleteButton)} onClick={() => {
+                              this.props.removeOneFromCart(product.id);
+                              this.removeFromLocal(product.id);
+                            }}
+                          >
+                            <DeleteIcon />
+                          </button>
+                        </div>
                       </React.Fragment>
                     }
                   />
-                  <ListItemSecondaryAction onClick={() => {
-                    this.props.removeOneFromCart(product.id);
-                    this.removeFromLocal(product.id);
-                  }}>
-                    <IconButton edge="end" aria-label="delete" >
-                      <DeleteIcon />
-                    </IconButton>
-                  </ListItemSecondaryAction>
                 </ListItem>
               ))}
             </List>
