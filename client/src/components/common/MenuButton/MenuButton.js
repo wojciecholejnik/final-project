@@ -26,18 +26,8 @@ Component.propTypes = {
   to: PropTypes.string,
 };
 
-// const mapStateToProps = state => ({
-//   someProp: reduxSelector(state),
-// });
-
-// const mapDispatchToProps = dispatch => ({
-//   someAction: arg => dispatch(reduxActionCreator(arg)),
-// });
-
-// const Container = connect(mapStateToProps, mapDispatchToProps)(Component);
 
 export {
   Component as MenuButton,
-  // Container as MenuButton,
   Component as MenuButtonComponent,
 };

@@ -36,7 +36,7 @@ class Cart extends React.Component {
   state = {
     _id: shortid.generate(),
     name: this.props.account.name,
-    phone: '',
+    phone: null,
     email: this.props.account.email,
     date: '',
     products: null,
@@ -76,10 +76,16 @@ class Cart extends React.Component {
   submitForm = (e) => {
     e.preventDefault();
     const order = this.state;
-    this.props.removeCart();
-    localStorage.setItem('cart', JSON.stringify([]));
-    this.props.sendOrder(order);
-    window.alert('Your order has been placed for processing');
+
+    if(typeof(order.phone) === 'number'){
+      this.props.removeCart();
+      localStorage.setItem('cart', JSON.stringify([]));
+      this.props.sendOrder(order);
+      window.alert('Your order has been placed for processing');
+    } else {
+      window.alert('Invalid phone number');
+    }
+
   }
 
   removeFromLocal = (id) => {
@@ -92,6 +98,7 @@ class Cart extends React.Component {
 
   render(){
     const { cart, account } = this.props;
+
     if(cart.length === 0){
       return(
         <div className={styles.root}><h2>Your cart is empty !</h2></div>
@@ -183,7 +190,7 @@ class Cart extends React.Component {
                   }}
                   className={styles.textField}
                   label='Type your phone:'
-                  type="phone"
+                  type="tel"
                   required
                   fullWidth
                   margin="dense"
