@@ -28,7 +28,7 @@ class Component extends React.Component {
         title: this.props.product.title,
         img: this.props.product.img,
         price: this.props.product.price,
-        totalCost: this.props.product.price * this.state.amount,
+        totalCost: this.props.product.price,
       });
     }
   }
@@ -38,7 +38,7 @@ class Component extends React.Component {
     type: '',
     title: '',
     img: '',
-    price: '',
+    price: null,
     amount: 1,
     wishes: '',
     totalCost: null,
@@ -58,15 +58,20 @@ class Component extends React.Component {
 
   setAmount = (type) => {
     if(type === 'more'){
-      let stateAmount = this.state.amount + 1;
+      const stateAmount = this.state.amount + 1;
+      const total = this.state.price * stateAmount;
       this.setState({
         amount: stateAmount,
+        totalCost: total,
       })
     } else if(type === 'less'){
-      let stateAmount = this.state.amount - 1;
+      console.log('less')
+      const stateAmount = this.state.amount - 1;
+      const total = this.state.price * stateAmount;
       if(this.state.amount > 1){
         this.setState({
           amount: stateAmount,
+          totalCost: total,
         })
       }
     }

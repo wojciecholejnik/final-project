@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/static/css/main.3f0b555e.chunk.css",
-    "main.js": "/static/js/main.688a72c0.chunk.js",
-    "main.js.map": "/static/js/main.688a72c0.chunk.js.map",
+    "main.js": "/static/js/main.565695d8.chunk.js",
+    "main.js.map": "/static/js/main.565695d8.chunk.js.map",
     "runtime-main.js": "/static/js/runtime-main.9d63ea6b.js",
     "runtime-main.js.map": "/static/js/runtime-main.9d63ea6b.js.map",
     "static/js/2.61179fae.chunk.js": "/static/js/2.61179fae.chunk.js",
     "static/js/2.61179fae.chunk.js.map": "/static/js/2.61179fae.chunk.js.map",
     "index.html": "/index.html",
-    "precache-manifest.7a6688285c78ffa1dd375d145e6c7d49.js": "/precache-manifest.7a6688285c78ffa1dd375d145e6c7d49.js",
+    "precache-manifest.fcf72fdcb34d2668d7e75e3aa247c89c.js": "/precache-manifest.fcf72fdcb34d2668d7e75e3aa247c89c.js",
     "service-worker.js": "/service-worker.js",
     "static/css/main.3f0b555e.chunk.css.map": "/static/css/main.3f0b555e.chunk.css.map",
     "static/media/cake1.jpeg": "/static/media/cake1.8404414a.jpeg",
@@ -31,6 +31,6 @@
     "static/js/runtime-main.9d63ea6b.js",
     "static/js/2.61179fae.chunk.js",
     "static/css/main.3f0b555e.chunk.css",
-    "static/js/main.688a72c0.chunk.js"
+    "static/js/main.565695d8.chunk.js"
   ]
 }

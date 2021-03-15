@@ -64,7 +64,6 @@ class Cart extends React.Component {
     localStorage.setItem('cart', JSON.stringify(this.state.products));
   }
 
-
   setTotal(products){
     let cost = null;
     products.map(product => {
@@ -184,7 +183,7 @@ class Cart extends React.Component {
                   }}
                   className={styles.textField}
                   label='Type your phone:'
-                  type="number"
+                  type="phone"
                   required
                   fullWidth
                   margin="dense"
