@@ -24,6 +24,11 @@
   }
 }
 
+.clicked {
+  color: $pink;
+  transition: none;
+}
+
 @media screen and (max-width: 340px) {
   .root {
     .cart {
@@ -36,5 +41,11 @@
         height: 14px;
       }
     }
+  }
+}
+
+@media screen and (max-width: 450px){
+  .cartIcon:hover {
+    background: none;
   }
 }

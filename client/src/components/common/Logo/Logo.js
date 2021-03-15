@@ -1,37 +1,26 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-// import PropTypes from 'prop-types';
-
-import clsx from 'clsx';
-
-// import { connect } from 'react-redux';
-// import { reduxSelector, reduxActionCreator } from '../../../redux/exampleRedux.js';
 
 import styles from './Logo.module.scss';
 
-const Component = () => (
-  <Link to='/' className={clsx(styles.root)}>
-    <p href='/'>BuBa <br/>Bakery</p>
-  </Link >
-);
 
-// Component.propTypes = {
-//   children: PropTypes.node,
-//   className: PropTypes.string,
-// };
+const Component = () => {
 
-// const mapStateToProps = state => ({
-//   someProp: reduxSelector(state),
-// });
+  const click = (text) => {
+    const element = document.getElementById(text);
+    element.classList.add(styles.clicked);
+    setTimeout(()=>{element.classList.remove(styles.clicked)}, 100);
+  }
 
-// const mapDispatchToProps = dispatch => ({
-//   someAction: arg => dispatch(reduxActionCreator(arg)),
-// });
+  return(
+    <Link onClick={() => {click('logo')}} to='/' className={styles.root}>
+      <p id='logo' href='/'>BuBa <br/>Bakery</p>
+    </Link >
+  )
+};
 
-// const Container = connect(mapStateToProps, mapDispatchToProps)(Component);
 
 export {
   Component as Logo,
-  // Container as Logo,
   Component as LogoComponent,
 };

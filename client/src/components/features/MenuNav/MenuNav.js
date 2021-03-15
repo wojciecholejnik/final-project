@@ -22,6 +22,12 @@ class Component extends React.Component {
     account: PropTypes.object,
   }
 
+  click = (text) => {
+    const element = document.getElementById(text);
+    element.classList.add(styles.clicked);
+    setTimeout(()=>{element.classList.remove(styles.clicked)}, 100);
+  }
+
   render(){
     const { cart, account } = this.props;
     return (
@@ -29,8 +35,8 @@ class Component extends React.Component {
         <MenuButton name={'order'} />
         <MenuButton name={'about'} />
         <div className={styles.cart}>
-          <Badge component={NavLink} to={'/cart'} badgeContent={null || cart.length} color='primary'>
-            <ShoppingCartIcon className={styles.cartIcon} fontSize='large'/>
+          <Badge onClick={() => {this.click('cart')}}component={NavLink} to={'/cart'} badgeContent={null || cart.length} color='primary'>
+            <ShoppingCartIcon id={'cart'} className={styles.cartIcon} fontSize='large'/>
           </Badge>
         </div>
         <div className={styles.log}>
@@ -46,14 +52,9 @@ const mapStateToProps = state => ({
   account: getAccount(state),
 });
 
-// const mapDispatchToProps = dispatch => ({
-//   someAction: arg => dispatch(reduxActionCreator(arg)),
-// });
-
 const Container = connect(mapStateToProps)(Component);
 
 export {
-  // Component as MenuNav,
   Container as MenuNav,
   Component as MenuNavComponent,
 };

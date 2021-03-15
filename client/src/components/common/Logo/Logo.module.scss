@@ -16,10 +16,23 @@
   }
 }
 
+p.clicked {
+  color: $pink;
+  transition: none;
+}
+
 @media screen and (max-width: 450px) {
   .root {
     p {
       font-size: 30px;
+      &:hover {
+        color: white;
+      }
+    }
+
+    p.clicked {
+      color: $pink;
+      transition: none;
     }
   }
 }

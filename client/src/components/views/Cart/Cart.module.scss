@@ -4,6 +4,7 @@
   display: flex;
   flex-direction: column;
   padding-bottom: 70px;
+  animation: opacity 1.0s ease-in-out;
 
   li {
     display: flex;
@@ -122,5 +123,17 @@ button {
 
   .needLog h4 {
     font-size: 15px;
+  }
+}
+
+@keyframes opacity {
+  1% {
+    opacity: 0;
+  }
+  40% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
   }
 }

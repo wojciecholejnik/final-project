@@ -65,7 +65,6 @@ class Component extends React.Component {
         totalCost: total,
       })
     } else if(type === 'less'){
-      console.log('less')
       const stateAmount = this.state.amount - 1;
       const total = this.state.price * stateAmount;
       if(this.state.amount > 1){
