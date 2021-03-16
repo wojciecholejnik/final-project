@@ -8226,10 +8226,10 @@ node-sass@4.12.0:
     stdout-stream "^1.4.0"
     "true-case-path" "^1.0.2"
 
-node@^10.22.0:
-  version "10.24.0"
-  resolved "https://registry.yarnpkg.com/node/-/node-10.24.0.tgz#6abe4b566bf3786e49aa96d5bf2ac482295d2a9f"
-  integrity sha512-RpcdHtb0fM4IHRg6c3ycvAiFHffjCxKfoC6S7lNmM+AvD3J79Fs9splONXuoUKGp0v1JFOXFaT46d2rCMJyTng==
+node@^14.16.0:
+  version "14.16.0"
+  resolved "https://registry.yarnpkg.com/node/-/node-14.16.0.tgz#8685f73db44f9c296a5d8d35b8fdc5fa81e12d75"
+  integrity sha512-YBeluFNO6rbx0cJko06Yn/JuOCnN3vRePaNV4t6qLSnhgJFbVy9FUk/C/2G3Dyva/9ei6I1EpQjXa5GJJ+Su0g==
   dependencies:
     node-bin-setup "^1.0.0"
 

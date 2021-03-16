@@ -11,7 +11,9 @@ Other endpoint:
 
 In the project directory, you can run:
 
-### `yarn start`
+### `build` ####Builds the app for production to the `build` folder
+### `start` ####to start project
+
 
 Runs the app in the development mode.<br />
 Open [http://localhost:7000](http://localhost:7000) to view it in the browser.
