@@ -7,9 +7,10 @@ client/yarn.lock
 
 # server dependencies
 /node_modules
-yarn.lock
+/yarn.lock
 /.pnp
 .pnp.js
+passwords.js
 
 # testing
 /coverage
