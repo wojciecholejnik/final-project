@@ -1,3 +1,4 @@
+const passwords = require('./passwords');
 const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
@@ -9,6 +10,8 @@ const ordersRoutes = require('./routes/orders.routes');
 const passportSetup = require('./config/passport');
 const passport = require('passport');
 const session = require('express-session');
+// const { env } = require('node:process');
+
 
 
 const app = express();
@@ -21,11 +24,15 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 // connect to DB
-const dbURI = 'mongodb+srv://wwwojtasss:wwwojtasss@cluster0.bpoyn.mongodb.net/BuBaBakeryDB?retryWrites=true&w=majority';
+const name = (process.env.NODE_ENV === 'production') ? process.env.dbUser : passwords.dbUser ;
+const password = (process.env.NODE_ENV === 'production') ? process.env.dbPassword : passwords.dbPassword ;
+
+const dbURI = `mongodb+srv://${name}:${password}@cluster0.bpoyn.mongodb.net/BuBaBakeryDB?retryWrites=true&w=majority`;
 mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true });
 const db = mongoose.connection;
 db.once('open', () => {
   console.log('Connected to the database');
+  console.log('process', process.env);
 });
 db.on('error', err => console.log('Error ' + err));
 
