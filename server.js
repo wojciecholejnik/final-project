@@ -31,8 +31,6 @@ const dbURI = `mongodb+srv://${name}:${password}@cluster0.bpoyn.mongodb.net/BuBa
 mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true });
 const db = mongoose.connection;
 db.once('open', () => {
-  console.log('Connected to the database');
-  console.log('process', process.env);
 });
 db.on('error', err => console.log('Error ' + err));
 
