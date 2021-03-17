@@ -1,4 +1,4 @@
-const passwords = require('./passwords');
+const passwords = require('./config/passwords');
 const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');

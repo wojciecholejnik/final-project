@@ -39,20 +39,21 @@ class Cart extends React.Component {
     phone: null,
     email: this.props.account.email,
     date: '',
-    products: null,
+    products: [],
     totalPrice: this.setTotal(this.props.cart),
   };
 
-  changeAmount(type, product){
+  changeAmount (type, toFind){
     let products = this.state.products;
-    const index = this.state.products.indexOf(product);
-    const findedProduct = this.state.products[index];
+    const productFromArray = products.find(product => product.id === toFind.id);
+    const index = products.indexOf(productFromArray);
+    const findedProduct = products[index];
     const amount = findedProduct.amount;
     let newAmount = null;
 
     if(type === 'more' ){
       newAmount = amount + 1;
-    } else if(type === 'less' && amount > 1){
+    } else if(type === 'less' && amount >= 2){
       newAmount = amount - 1;
     } else if(type === 'less' && amount === 1){
       newAmount = 1;
@@ -61,7 +62,7 @@ class Cart extends React.Component {
     products[index] = newProduct;
     this.setState({products: products});
     this.setState({totalPrice: this.setTotal(products)});
-    localStorage.setItem('cart', JSON.stringify(this.state.products));
+    localStorage.setItem('cart', JSON.stringify(products));
   }
 
   setTotal(products){
@@ -94,6 +95,7 @@ class Cart extends React.Component {
     const index = local.indexOf(product);
     local.splice(index, 1);
     localStorage.setItem('cart', JSON.stringify(local));
+    this.setState({products: local});
   }
 
   render(){
@@ -108,7 +110,7 @@ class Cart extends React.Component {
         <div className={clsx(styles.root)}>
           <div className={styles.container}>
             <List>
-              {cart.map(product => (
+              {this.state.products.map(product => (
                 <ListItem divider key={product.id}>
                   <ListItemAvatar>
                     <Avatar
@@ -125,6 +127,7 @@ class Cart extends React.Component {
                           <button className={clsx(styles.amountButton, styles.deleteButton)} onClick={() => {
                               this.props.removeOneFromCart(product.id);
                               this.removeFromLocal(product.id);
+                              this.setState({totalPrice: this.setTotal(this.state.products)});
                             }}
                           >
                             <DeleteIcon />

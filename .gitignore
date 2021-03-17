@@ -10,7 +10,7 @@ client/yarn.lock
 /yarn.lock
 /.pnp
 .pnp.js
-passwords.js
+config/passwords.js
 
 # testing
 /coverage

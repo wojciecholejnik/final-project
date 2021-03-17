@@ -1,6 +1,6 @@
 const MAIN_URL = (process.env.NODE_ENV === 'production') ? 'http://buba-bakery.herokuapp.com' : 'http://localhost:7000';
 const passport = require('passport');
-const passwords = require('../passwords');
+const passwords = require('./passwords');
 const GoogleStrategy = require('passport-google-oauth20').Strategy;
 
 

@@ -82,9 +82,10 @@ class Component extends React.Component {
     setTimeout(()=>{svg.classList.remove(styles.clicked)}, 100);
   }
 
-
   render(){
     const matchType = this.props.match.params.id.split('-')[0];
+    const cakePhoto = this.state.img && matchType === 'cake' ? require('../../../images/products/cakes/' + this.state.img) : null;
+    const cupcakePhoto = this.state.img && matchType === 'cupcake' ? require('../../../images/products/cupcakes/' + this.state.img) : null;
 
     if(this.props.stats.active || !this.props.product){
       return (<div className={styles.root}><Loading /></div>);
@@ -96,7 +97,11 @@ class Component extends React.Component {
         <div className={clsx(styles.root)}>
           <Grid container spacing={2} >
             <Grid item xs={12} >
-              <img className={styles.img} alt={this.props.product.title} src={matchType === 'cake' ? require('../../../images/products/cakes/' + this.props.product.img) : require('../../../images/products/cupcakes/' + this.props.product.img)}></img>
+              <img
+                className={styles.img}
+                alt={this.props.product.title}
+                src={cakePhoto || cupcakePhoto}
+              />
             </Grid>
             <Grid item xs={12} >
               <div className={styles.container}>

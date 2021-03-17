@@ -3,7 +3,7 @@
 .root {
   width: 80%;
   margin: 0 auto;
-  animation: opacity 1.0s ease-in-out;
+  animation: opacity 0.5s ease-in-out;
 
 
   .imgContainer {
@@ -17,12 +17,12 @@
     padding: 7px;
     margin-top: 20px;
     border-radius: 50%;
-    background-color: $pistachio;
+    background-color: $transparently-blue;
     animation: moveRight 1.5s ease-in-out;
   }
 
   article {
-    background-color: $pistachio;
+    background-color: $transparently-blue;
     border-radius: 8px;
     padding: 5px;
     margin-top: 15px;
