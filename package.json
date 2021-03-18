@@ -6,7 +6,9 @@
   "author": "Wojciech Olejnik <wojciecholejnik5@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "start": "nodemon server.js"
+    "start": "nodemon server.js",
+    "front-start": "cd client && yarn start",
+    "build": "cd client && yarn build"
     },
   "dependencies": {
     "@babel/helper-builder-react-jsx": "^7.10.4",
