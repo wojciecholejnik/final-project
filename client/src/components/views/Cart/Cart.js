@@ -77,8 +77,10 @@ class Cart extends React.Component {
   submitForm = (e) => {
     e.preventDefault();
     const order = this.state;
+    const reg = /^[0-9]+$/;
+    const tested = reg.test(order.phone);
 
-    if(typeof(order.phone) === 'number'){
+    if(tested){
       this.props.removeCart();
       localStorage.setItem('cart', JSON.stringify([]));
       this.props.sendOrder(order);

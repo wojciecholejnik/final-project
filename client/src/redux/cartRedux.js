@@ -36,7 +36,6 @@ export const loadCartRequest = () => {
 };
 
 export const sendOrderRequest = (data) => {
-  console.log('data to post: ', data);
   return async dispatch => {
     await axios({
       method: 'post',
